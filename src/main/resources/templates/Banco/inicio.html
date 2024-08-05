@@ -6,12 +6,155 @@
     <title>Inicio - Banco</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #003d7a;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-size: 18px;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e0e0e0 !important;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' d='M4 6h16M4 12h16m-7 6h7'/%3E%3C/svg%3E");
+        }
+        .hero-section {
+            background: url('https://img.freepik.com/premium-vector/banking-service-background-bank-building-icon-made-with-currency-symbols-dollar-euro-yen-pound-icons_127544-803.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            font-size: 20px;
+            padding: 15px 30px;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #004ba0;
+            transform: scale(1.05);
+        }
+        .services-section,
+        .testimonials-section,
+        .statistics-section {
+            padding: 60px 0;
+        }
+        .services-section,
+        .statistics-section {
+            background-color: #ffffff;
+        }
+        .testimonials-section {
+            background-color: #f8f9fa;
+        }
+        .services-section h2,
+        .testimonials-section h2,
+        .statistics-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #003d7a;
+            font-weight: bold;
+        }
+        .service-card,
+        .testimonial-card,
+        .stat {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+        .service-card img,
+        .stat h3 {
+            max-width: 80px;
+        }
+        .testimonial-card p {
+            font-size: 18px;
+            color: #555;
+        }
+        .testimonial-card h4 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #003d7a;
+            font-weight: bold;
+        }
+        .stat h3 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #003d7a;
+        }
+        .stat p {
+            font-size: 18px;
+            color: #555;
+        }
+        .footer {
+            background-color: #003d7a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 <header class="header">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">BANCO</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-university"></i> BANCO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,55 +163,106 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/informacion" th:href="@{/informacion}">Información</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#statistics">Estadísticas</a>
+                </li>
             </ul>
         </div>
     </nav>
 </header>
 <section class="hero-section">
-    <div class="container text-center">
+    <div class="container">
         <h1>Bienvenido al Banco</h1>
         <p>Tu mejor opción en servicios financieros</p>
-        <a href="/formulario" class="btn btn-primary">Accede al Formulario</a>
+        <a href="/informacion" class="cta-button">Accede a Información</a>
     </div>
 </section>
-<section class="services-section py-5">
+
+<section id="services" class="services-section">
     <div class="container">
-        <h2 class="text-center mb-4">Nuestros Servicios</h2>
+        <h2>Nuestros Servicios</h2>
         <div class="row">
             <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://th.bing.com/th/id/R.717fc91e6f0a56d1b2b65dded5978979?rik=cI3wvL8yEyikoA&pid=ImgRaw&r=0" alt="Servicio 1" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">Banca Virtual Personas</h3>
-                        <p class="card-text">Realiza tus transacciones de forma rápida y segura desde cualquier dispositivo con acceso a Internet.</p>
-                        <a href="#" class="btn btn-primary">Conozca más</a>
-                    </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/R.717fc91e6f0a56d1b2b65dded5978979?rik=cI3wvL8yEyikoA&pid=ImgRaw&r=0" alt="Cuenta Ahorro">
+                    <h3>Cuenta Ahorro</h3>
+                    <p>Gestiona tu dinero con facilidad y seguridad.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://th.bing.com/th/id/R.e1adac39fd3fbb219c7d8d688ab2a2b7?rik=Ndi8aXsK%2fY0oAw&pid=ImgRaw&r=0" alt="Servicio 2" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">Ahorro Programado</h3>
-                        <p class="card-text">Con Ahorro Programado te ofrecemos una tasa competitiva y las mejores opciones para que ahorres y alcances tus metas.</p>
-                        <a href="#" class="btn btn-primary">Conozca más</a>
-                    </div>
+                <div class="service-card">
+                    <img src="https://th.bing.com/th/id/R.e1adac39fd3fbb219c7d8d688ab2a2b7?rik=Ndi8aXsK%2fY0oAw&pid=ImgRaw&r=0" alt="Préstamos Personales">
+                    <h3>Préstamos Personales</h3>
+                    <p>Obtén el financiamiento que necesitas con condiciones favorables.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
-                    <img src="https://static.vecteezy.com/system/resources/previews/010/505/275/original/a-bank-deposit-flat-illustration-download-vector.jpg" alt="Servicio 3" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">Pago de Servicios</h3>
-                        <p class="card-text">Realiza el pago de tus servicios desde la comodidad de tu hogar, de manera rápida y segura.</p>
-                        <a href="#" class="btn btn-primary">Conozca más</a>
-                    </div>
+                <div class="service-card">
+                    <img src="https://static.vecteezy.com/system/resources/previews/010/505/275/original/a-bank-deposit-flat-illustration-download-vector.jpg" alt="Inversiones">
+                    <h3>Inversiones</h3>
+                    <p>Invierte en oportunidades seguras y rentables.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<footer class="footer text-center py-4">
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2>Lo que Dicen Nuestros Clientes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"El servicio es excelente y la atención al cliente es insuperable. ¡Altamente recomendado!"</p>
+                    <h4>Juan Pérez</h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"Una experiencia bancaria sin complicaciones y con grandes beneficios. Me siento seguro con ellos."</p>
+                    <h4>María Rodríguez</h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <p>"El banco ha sido una gran ayuda para gestionar mis finanzas y alcanzar mis objetivos."</p>
+                    <h4>Pedro Gómez</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="statistics" class="statistics-section">
+    <div class="container">
+        <h2>Nuestras Estadísticas</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat">
+                    <h3>5000+</h3>
+                    <p>Clientes Satisfechos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat">
+                    <h3>$10M+</h3>
+                    <p>Prestamos Otorgados</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat">
+                    <h3>200+</h3>
+                    <p>Oficinas en Todo el País</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
     <p>&copy; 2024 Banco Ejemplo. Todos los derechos reservados.</p>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla Bien</title>
+    <title>Pantalla de Confirmación</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-primary {
+            background-color: #0062cc;
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #004ba0;
+            transform: scale(1.05);
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <h1>¡Formulario Enviado Exitosamente!</h1>
-    <p>Gracias por completar el formulario. Tu información ha sido recibida.</p>
-    <a href="/formulario" class="btn btn-primary">Volver al Formulario</a>
+    <p>Gracias por completar el formulario. Tu información ha sido recibida y está en proceso de revisión.</p>
+    <div class="d-flex justify-content-center">
+        <a href="/formulario" class="btn btn-primary">Volver al Formulario</a>
+        <a href="/generar-pdf" class="btn btn-success">Generar PDF</a>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
